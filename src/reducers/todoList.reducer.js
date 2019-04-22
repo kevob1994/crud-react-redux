@@ -1,7 +1,9 @@
 import { ADD_ITEM, DELETE_ITEM, UPDATE_ITEM} from '../actions/todoList.actions';
 
 const initialState = {
-    todoList: ['prueba1','prueba2']
+    todoList: [
+        {id:1, prueba: "prueba"}
+        ,{id:2, prueba: "prueba2"}]
 }
 
 const reducer = (state = initialState, action) => {
