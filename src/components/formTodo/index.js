@@ -19,7 +19,7 @@ export class FormTodo extends Component {
     const priority = ["baja", "media","alta"]
     return (
       <div className="formulario">
-        <Paper >
+      <Paper >
         <Typography variant="h4" gutterBottom>
         Nueva tarea
       </Typography>
