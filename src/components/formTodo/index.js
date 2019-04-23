@@ -3,6 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import './style.scss';
 
 export class FormTodo extends Component {
@@ -54,7 +55,9 @@ export class FormTodo extends Component {
             </MenuItem>
           ))}
         </TextField>
- 
+        <Button variant="contained">
+          Default
+        </Button>
         </form>
         </Paper>
       </div>
