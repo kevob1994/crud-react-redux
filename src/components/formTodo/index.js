@@ -4,18 +4,27 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import { connect } from 'react-redux';
+import { addToList } from './../../actions/todoList.actions'
 import './style.scss';
 
 export class FormTodo extends Component {
+
   state = {
+    task: "",
+    user: "",
     prioritySelected: ""
   }
-  handleChange  = event => {
-    this.setState({
-      prioritySelected: event.target.value,
-    });
-    console.log(this.state)
+
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.value });
   };
+
+  addItem=() =>{
+    this.props.addToList(this.state)
+    this.setState({task:"", user:"",prioritySelected:"" })
+  }
+
   render() {
     const priority = ["baja", "media","alta"]
     return (
@@ -28,6 +37,8 @@ export class FormTodo extends Component {
         <TextField
           id="outlined-name"
           label="Tarea"
+          value={this.state.task}
+          onChange={this.handleChange("task")}
           margin="normal"
           variant="outlined"
           fullWidth
@@ -35,6 +46,8 @@ export class FormTodo extends Component {
         <TextField
           id="outlined-name"
           label="Encargado"
+          value={this.state.user}
+          onChange={this.handleChange("user")}
           margin="normal"
           variant="outlined"
           fullWidth
@@ -44,7 +57,7 @@ export class FormTodo extends Component {
           select
           label="Select"
           value={this.state.prioritySelected}
-          onChange={this.handleChange}
+          onChange={this.handleChange("prioritySelected")}
           margin="normal"
           variant="outlined"
           fullWidth
@@ -55,7 +68,7 @@ export class FormTodo extends Component {
             </MenuItem>
           ))}
         </TextField>
-        <Button variant="contained">
+        <Button variant="contained" onClick={()=>{this.addItem()}}>
           Agregar
         </Button>
         </form>
@@ -65,4 +78,6 @@ export class FormTodo extends Component {
   }
 }
 
-export default FormTodo;
+
+
+export default connect(null,{addToList})(FormTodo);

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Paper from '@material-ui/core/Paper';
-
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -8,6 +7,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import { connect } from 'react-redux';
 import './style.scss';
 
 export class TableTodo extends Component {
@@ -36,17 +36,22 @@ export class TableTodo extends Component {
               <TableRow>
                 <TableCell>Tarea</TableCell>
                 <TableCell align="right">Encargado</TableCell>
+                <TableCell align="right">Prioridad</TableCell>
+                <TableCell></TableCell>
                 <TableCell></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {this.state.listTask.map(row => (
+              {this.props.taskList.map(row => (
                 <TableRow key={row.id}>
                   <TableCell component="th" scope="row">
                     {row.task}
                   </TableCell>
                   <TableCell align="right">
                     {row.user}
+                  </TableCell>
+                  <TableCell align="right">
+                    {row.prioritySelected}
                   </TableCell>
                   <TableCell align="right">
                   <Grid fluid>
@@ -70,5 +75,10 @@ export class TableTodo extends Component {
     )
   }
 }
-
-export default TableTodo;
+const mapStateToProps = ({todoList}) =>{
+  console.log(todoList.todoList)
+  return({
+    taskList: todoList.todoList
+  })
+}
+export default connect(mapStateToProps,null)(TableTodo);
