@@ -4,9 +4,48 @@
 .MuiTableCell-alignRight-168 {
     text-align: left !important;
 }
-thead{
-    background-color: #1f419c !important;
-    tr>th{
-        color: white !important
-    }
+.baja{
+    color: rgb(223, 211, 51);
+    font-weight: bold;
+}
+
+.media{
+    color: rgb(236, 169, 25);
+    font-weight: bold;
+}
+.alta{
+    color: #9c231f;
+    font-weight: bold;
+}
+.updateTask{
+    fill: #1f419c
+}
+
+.deleteTask{
+    fill: #e02f29
+}
+
+table {
+    // word-break: break-all;
+}
+
+.MuiModal-root-149{
+    /* Copy paste this to 
+  center your element */
+  display: flex;
+  /* This center vertically */
+  justify-content: center;
+  /* This center horizontally */
+  align-items: center;
+}
+
+.parent{
+  
+    background: white;
+    border-radius: 4px;
+    padding: 5px;
+    -webkit-box-shadow: 10px 10px 6px 10px #777;
+	-moz-box-shadow: 10px 10px 6px 10px #777;
+	box-shadow: 10px 10px 6px 10px #777;
+    outline: none;
 }

@@ -1,7 +1,6 @@
 import { createStore, compose } from "redux";
 import rootReducer from "./reducers/root.reducer";
 
-console.log(rootReducer);
 let devTool = null;
 
 if (process.env.NODE_ENV === "development") {

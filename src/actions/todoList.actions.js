@@ -7,4 +7,15 @@ const addToList = payload => ({
     payload
 })
 
-export { addToList };
+const deleteToList = payload => ({
+    type: DELETE_ITEM,
+    payload
+})
+
+const updateToList = (id,payload) => ({
+    type: UPDATE_ITEM,
+    id,
+    payload
+})
+
+export { addToList, deleteToList, updateToList };

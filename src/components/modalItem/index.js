@@ -5,10 +5,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
-import { addToList } from './../../actions/todoList.actions'
+import { updateTask } from './../../actions/todoList.actions'
 import './style.scss';
 
-export class FormTodo extends Component {
+export class ModalTodo extends Component {
 
   state = {
     task: "",
@@ -21,8 +21,8 @@ export class FormTodo extends Component {
   };
 
   addItem=() =>{
-    this.props.addToList(this.state)
-    this.setState({task:"", user:"",prioritySelected:"" })
+    // this.props.addToList(this.state)
+    // this.setState({task:"", user:"",prioritySelected:"" })
   }
 
   buttonState = () => {
@@ -95,4 +95,4 @@ export class FormTodo extends Component {
 
 
 
-export default connect(null,{addToList})(FormTodo);
+export default connect(null,{updateTask})(ModalTodo);

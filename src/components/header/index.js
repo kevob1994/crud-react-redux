@@ -10,7 +10,7 @@ export class Header extends Component {
         <AppBar position="static" color="inherit">
         <Toolbar>
           <Typography variant="h6" color="inherit">
-            Header
+            Lista de tareas
           </Typography>
         </Toolbar>
       </AppBar>

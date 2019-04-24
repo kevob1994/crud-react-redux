@@ -11,17 +11,16 @@ import TableTodo from './components/tableTodo'
 class App extends Component {
   
   render() {
-    console.log(this.props.todoList)
     return (
       <div>
         <CssBaseline />
         <Header />
         <Grid fluid>
         <Row>
-          <Col xs={12} md={12} lg={6}>
+          <Col xs={12} md={12} lg={3}>
           <FormTodo />
           </Col>
-          <Col xs={12} md={12} lg={6}>
+          <Col xs={12} md={12} lg={9}>
           <TableTodo />
           </Col>
         </Row>
