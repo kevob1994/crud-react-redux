@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import Paper from '@material-ui/core/Paper';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Typography from '@material-ui/core/Typography';
-import { Grid, Row, Col } from 'react-flexbox-grid';
-import Modal from '@material-ui/core/Modal';
-import { connect } from 'react-redux';
-import { deleteToList } from './../../actions/todoList.actions'
-import ModalItem from './../modalItem'
-import './style.scss';
+import React, { Component } from "react";
+import Paper from "@material-ui/core/Paper";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Typography from "@material-ui/core/Typography";
+import { Grid, Row, Col } from "react-flexbox-grid";
+import Modal from "@material-ui/core/Modal";
+import { connect } from "react-redux";
+import { deleteToList } from "./../../actions/todoList.actions"
+import ModalItem from "./../modalItem"
+import "./style.scss";
 
 export class TableTodo extends Component {
   state = {
@@ -19,9 +19,7 @@ export class TableTodo extends Component {
     itemSelected: {}
   }
   handleOpen = (task) => {
-    
     this.setState({ itemSelected: task, openModal: true });
-    console.log(this.state)
   };
 
   handleClose = () => {
