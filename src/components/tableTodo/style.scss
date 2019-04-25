@@ -1,0 +1,48 @@
+.card {
+    margin: 10px !important;
+}
+.MuiTableCell-alignRight-168 {
+    text-align: left !important;
+}
+.baja{
+    color: rgb(223, 211, 51);
+    font-weight: bold;
+}
+
+.media{
+    color: rgb(236, 169, 25);
+    font-weight: bold;
+}
+.alta{
+    color: #9c231f;
+    font-weight: bold;
+}
+.updateTask{
+    fill: #1f419c
+}
+
+.deleteTask{
+    fill: #e02f29
+}
+
+table {
+    // word-break: break-all;
+}
+
+.MuiModal-root-149{
+    /* Copy paste this to 
+  center your element */
+  display: flex;
+  /* This center vertically */
+  justify-content: center;
+  /* This center horizontally */
+  align-items: center;
+}
+
+.parent{
+  
+    // background: white;
+    border-radius: 4px;
+    padding: 5px;
+    outline: none;
+}
