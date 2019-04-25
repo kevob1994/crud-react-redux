@@ -1,4 +1,4 @@
-import { ADD_ITEM, DELETE_ITEM, UPDATE_ITEM } from '../actions/todoList.actions';
+import { ADD_ITEM, DELETE_ITEM, UPDATE_ITEM } from "../actions/todoList.actions";
 
 const initialState = {
     todoList: []
