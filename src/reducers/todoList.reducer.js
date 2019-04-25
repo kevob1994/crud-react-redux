@@ -7,7 +7,7 @@ const initialState = {
 var id = 0;
 
 const reducer = (state = initialState, action) => {
-    
+    let newTodoList
     switch (action.type) {
 
         case ADD_ITEM:{
@@ -15,18 +15,23 @@ const reducer = (state = initialState, action) => {
             action.payload.id = id
 
     console.log(id)
-            const newTodoList = [...state.todoList, action.payload]
+            newTodoList = [...state.todoList, action.payload]
             return {...state, todoList: newTodoList}
         }
 
         case DELETE_ITEM:{
-            const newTodoList = state.todoList.filter(task => (task.id!== action.payload))
+            newTodoList = state.todoList.filter(task => (task.id!== action.payload))
             return {...state, todoList: newTodoList }
         }
 
         case UPDATE_ITEM:{
-
-            return state
+            newTodoList = state.todoList.map( task => {
+            if(task.id=== action.payload.id){
+                return action.payload
+            }
+                return task
+            })
+            return {...state, todoList: newTodoList }
         }
     
         default:{

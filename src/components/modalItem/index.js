@@ -5,24 +5,31 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
-import { updateTask } from './../../actions/todoList.actions'
+import { updateToList } from './../../actions/todoList.actions'
 import './style.scss';
 
-export class ModalTodo extends Component {
+export class ModalItem extends Component {
 
-  state = {
-    task: "",
-    user: "",
-    prioritySelected: ""
+  constructor({task}){
+    super();
+     this.state ={
+      id: task.id,
+      task: task.task,
+      user: task.user,
+      prioritySelected: task.prioritySelected
+     }
+     console.log(task)
   }
+
 
   handleChange = name => event => {
     this.setState({ [name]: event.target.value });
   };
 
-  addItem=() =>{
-    // this.props.addToList(this.state)
-    // this.setState({task:"", user:"",prioritySelected:"" })
+  updateItem=() =>{
+    console.log(this.state)
+    this.props.updateToList(this.state)
+    this.props.closeModal()
   }
 
   buttonState = () => {
@@ -31,13 +38,13 @@ export class ModalTodo extends Component {
     || this.state.prioritySelected === ""){
       return(
         <Button variant="contained" disabled className="disableButton">
-          Agregar
+          Modificar
         </Button>
       )
     }
     return(
-      <Button variant="contained"  onClick={()=>{this.addItem()}}>
-        Agregar
+      <Button variant="contained"  onClick={()=>{this.updateItem()}}>
+        Modificar
       </Button>
     )
   }
@@ -48,7 +55,7 @@ export class ModalTodo extends Component {
       <div className="formulario">
       <Paper >
         <Typography variant="h4" gutterBottom>
-        Nueva tarea
+        Modificar tarea
       </Typography>
         <form  noValidate autoComplete="off">
         <TextField
@@ -86,6 +93,9 @@ export class ModalTodo extends Component {
           ))}
         </TextField>
             {this.buttonState()}
+            <Button variant="contained" className="cancelButton" onClick={()=>{this.props.closeModal()}}>
+              Cancelar
+            </Button>
         </form>
         </Paper>
       </div>
@@ -95,4 +105,4 @@ export class ModalTodo extends Component {
 
 
 
-export default connect(null,{updateTask})(ModalTodo);
+export default connect(null,{updateToList})(ModalItem);

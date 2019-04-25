@@ -12,9 +12,8 @@ const deleteToList = payload => ({
     payload
 })
 
-const updateToList = (id,payload) => ({
+const updateToList = (payload) => ({
     type: UPDATE_ITEM,
-    id,
     payload
 })
 
