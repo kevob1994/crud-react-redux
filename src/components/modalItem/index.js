@@ -5,10 +5,11 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { connect } from "react-redux";
+import PropTypes from 'prop-types';
 import { updateToList } from "./../../actions/todoList.actions"
 import "./style.scss";
 
-export class ModalItem extends Component {
+class ModalItem extends Component {
 
   constructor({ task }) {
     super();
@@ -54,7 +55,7 @@ export class ModalItem extends Component {
         <Paper >
           <Typography variant="h4" gutterBottom>
             Modificar tarea
-      </Typography>
+          </Typography>
           <form noValidate autoComplete="off">
             <TextField
               id="outlined-name"
@@ -99,6 +100,12 @@ export class ModalItem extends Component {
       </div>
     )
   }
+}
+
+ModalItem.propTypes = {
+  task: PropTypes.object,
+  updateToList: PropTypes.func,
+  closeModal: PropTypes.func
 }
 
 export default connect(null, { updateToList })(ModalItem);

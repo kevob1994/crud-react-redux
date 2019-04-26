@@ -2,8 +2,9 @@ import React, { Component } from "react"
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import "./style.scss"
-export class Header extends Component {
+import "./style.scss";
+
+class Header extends Component {
   render() {
     return (
       <div>
@@ -11,7 +12,7 @@ export class Header extends Component {
           <Toolbar>
             <Typography variant="h6" color="inherit">
               Lista de tareas
-          </Typography>
+            </Typography>
           </Toolbar>
         </AppBar>
       </div>
