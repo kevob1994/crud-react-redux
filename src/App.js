@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Grid, Row, Col } from "react-flexbox-grid";
-import { addToList } from "./actions/todoList.actions";
 import Header from "./components/header"
 import FormTodo from "./components/formTodo"
 import TableTodo from "./components/tableTodo"
@@ -30,11 +27,4 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  todoList: PropTypes.arrayOf(PropTypes.object)
-}
-
-const mapStateToProps = ({ todoList }) => ({
-  todoList: todoList.todoList
-})
-export default connect(mapStateToProps, { addToList })(App);
+export default App;

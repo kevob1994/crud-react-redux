@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -12,7 +13,7 @@ import { deleteToList } from "./../../actions/todoList.actions"
 import ModalItem from "./../modalItem"
 import "./style.scss";
 
-export class TableTodo extends Component {
+class TableTodo extends Component {
   state = {
     openModal: false,
     itemSelected: {}
@@ -25,8 +26,6 @@ export class TableTodo extends Component {
     this.setState({ openModal: false });
   };
 
-
-
   render() {
     return (
       <div className="card">
@@ -37,7 +36,7 @@ export class TableTodo extends Component {
                 <TableCell>Tarea</TableCell>
                 <TableCell align="right">Encargado</TableCell>
                 <TableCell align="right">Prioridad</TableCell>
-                <TableCell></TableCell>
+                <TableCell />
               </TableRow>
             </TableHead>
             <TableBody>
@@ -55,16 +54,16 @@ export class TableTodo extends Component {
                     </div>
                   </TableCell>
                   <TableCell align="right">
-                  <Grid fluid>
-                    <Row>
-                      <Col xs={6} onClick= {()=>{this.handleOpen(row)}}>
-                        <svg className="updateTask" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
-                      </Col>
-                      <Col xs={6} onClick= {()=>{this.props.deleteToList(row.id)}}>
-                      <svg className="deleteTask" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
-                      </Col>
-                    </Row>
-                  </Grid>
+                    <Grid fluid>
+                      <Row>
+                        <Col xs={6} onClick={()=>{this.handleOpen(row)}}>
+                          <svg className="updateTask" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" /><path d="M0 0h24v24H0z" fill="none" /></svg>
+                        </Col>
+                        <Col xs={6} onClick={()=>{this.props.deleteToList(row.id)}}>
+                          <svg className="deleteTask" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" ><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" /><path d="M0 0h24v24H0z" fill="none" /></svg>
+                        </Col>
+                      </Row>
+                    </Grid>
                   </TableCell>
                   
                 </TableRow>
@@ -80,17 +79,22 @@ export class TableTodo extends Component {
           aria-describedby="simple-modal-description"
           open={this.state.openModal}
           onClose={this.handleClose}
-          disableAutoFocus={true}
           disableEnforceFocus={false}
         >
-          <div className="parent">
-            <ModalItem task={this.state.itemSelected} closeModal={this.handleClose}/>
+          <div className="parent" >
+            <ModalItem task={this.state.itemSelected} closeModal={this.handleClose} />
           </div>
         </Modal>
       </div>
     )
   }
 }
+
+TableTodo.propTypes = {
+  taskList: PropTypes.array,
+  deleteToList: PropTypes.func
+}
+
 const mapStateToProps = ({todoList}) =>({
   taskList: todoList.todoList
 })
